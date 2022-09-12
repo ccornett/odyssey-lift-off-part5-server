@@ -14,11 +14,6 @@ const resolvers = {
     module: (_, { id }, { dataSources }) => {
       return dataSources.trackAPI.getModule(id);
     },
-
-    durationInSeconds: ({ length }) => length,
-  },
-  Module: {
-    durationInSeconds: ({ length }) => length,
   },
   Mutation: {
     // increments a track's numberOfViews property
@@ -49,7 +44,12 @@ const resolvers = {
     modules: ({ id }, _, { dataSources }) => {
       return dataSources.trackAPI.getTrackModules(id);
     },
+
+    durationInSeconds: ({ length }) => length,
   },
+  Module: {
+    durationInSeconds: ({ length }) => length,
+  }
 };
 
 module.exports = resolvers;
